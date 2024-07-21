@@ -1,6 +1,6 @@
 import java.util.HashSet;
 
-public class GroceryStore {
+public class GroceryStore implements Deliverable<GroceryItem> {
 	
 	HashSet<GroceryItem> items;
 	
@@ -21,7 +21,7 @@ public class GroceryStore {
 	}
 	
 	//TODO: SRP Violation (make into interface)
-	String determineBoxSize(GroceryItem item) {
+	public String determineBoxSize(GroceryItem item) {
 		double length = item.getLength();
 		double width = item.getWidth();
 		double height = item.getHeight();
@@ -41,7 +41,7 @@ public class GroceryStore {
 	}
 	
 	//TODO: SRP Violation
-	void deliver(GroceryItem item, Customer customer) {
+	public void deliver(GroceryItem item, Customer customer) {
 		if(itemExists(item)){
 			System.out.println("Delivering " + item);
 			System.out.println("Delivery service: Groceries Express");

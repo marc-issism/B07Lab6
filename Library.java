@@ -1,6 +1,6 @@
 import java.util.HashSet;
 
-public class Library {
+public class Library implements Deliverable<Book> {
 	
 	HashSet<Book> books;
 	
@@ -20,7 +20,7 @@ public class Library {
 		return books.contains(book);
 	}
 	
-	String determineBoxSize(Book book) {
+	public String determineBoxSize(Book book) {
 		double length = book.getLength();
 		double width = book.getWidth();
 		double height = book.getHeight();
@@ -37,7 +37,7 @@ public class Library {
 			return "large";
 	}
 	
-	void deliver(Book book, Customer customer) {
+	public void deliver(Book book, Customer customer) {
 		if(bookExists(book)){
 			System.out.println("Delivering " + book);
 			System.out.println("Delivery service: Books Express");

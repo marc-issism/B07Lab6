@@ -1,0 +1,102 @@
+1. Violation of 7.4 if, if-else, if else-if else Statements
+
+    if(dAB==dBC && dBC==dCA)
+			return true;
+		else
+			return false;
+
+    should be the following: 
+
+    if(dAB==dBC && dBC==dCA) {
+        return true;
+    } else {
+        return false;
+    }
+
+
+2. Violation of 8.1 Blank Lines
+
+    @Test
+	void testHashCode() {
+		Point p1 = new Point(1.0,1.0);
+		Point p2 = new Point(1.0, 2.0);
+		assertNotEquals(p1.hashCode(),p2.hashCode());
+		
+	}
+	@Test 
+	void testHashCodeDiff() {
+		Point p1 = new Point(1.25, 1.255);
+		Point p2 = new Point (1.26, 9.2);
+		assertNotEquals(p1.hashCode(), p2.hashCode());
+		
+	}
+
+    should be the following:
+
+    @Test
+	void testHashCode() {
+		Point p1 = new Point(1.0,1.0);
+		Point p2 = new Point(1.0, 2.0);
+
+		assertNotEquals(p1.hashCode(),p2.hashCode());
+	}
+
+	@Test 
+	void testHashCodeDiff() {
+		Point p1 = new Point(1.25, 1.255);
+		Point p2 = new Point (1.26, 9.2);
+
+		assertNotEquals(p1.hashCode(), p2.hashCode());
+	}
+
+
+3. Violation of 9 - Naming Conventions
+
+    public double distance(Point other) {
+		return Math.sqrt(Math.pow(x-other.x, 2) + Math.pow(y-other.y, 2));
+	}
+
+    should be the following:
+
+    public double getDistanceFrom(Point other) {
+		return Math.sqrt(Math.pow(x-other.x, 2) + Math.pow(y-other.y, 2));
+	}
+    
+
+4. Violation of 10.1 Providing Access to Instance and Class Variables
+
+    public class Point {
+        double x;
+        double y;
+        .
+        .
+        .
+    }
+
+    should be the following:
+
+    public class Point {
+        private double x;
+        private double y;
+        .
+        .
+        .
+        // Getters and Setters for x and y
+    }
+
+
+5. Violation of 10.5.1 Parentheses
+
+    @Override
+	public int hashCode() {
+		return (int)(3*x + 5*y);
+	}
+
+    should be the following: 
+
+    @Override
+	public int hashCode() {
+		return (int)( (3*x) + (5*y) );
+	}
+
+    
